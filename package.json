@@ -1,0 +1,30 @@
+{
+  "name": "chooser-js",
+  "version": "1.0.0",
+  "description": "The program helps to pick up the item at the specified criteria",
+  "main": "index.js",
+  "scripts": {
+    "test": "vows --spec --isolate"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavelpower/chooser-js.git"
+  },
+  "keywords": [
+    "node",
+    "resolver",
+    "find",
+    "size",
+    "finde",
+    "color"
+  ],
+  "author": "pavel.power@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pavelpower/chooser-js/issues"
+  },
+  "homepage": "https://github.com/pavelpower/chooser-js#readme",
+  "devDependencies": {
+    "vows": "^0.8.1"
+  }
+}
