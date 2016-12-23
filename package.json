@@ -1,6 +1,6 @@
 {
   "name": "chooser-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The program helps to pick up the item at the specified criteria (Choose the closest)",
   "main": "index.js",
   "scripts": {
