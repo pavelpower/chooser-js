@@ -2,6 +2,17 @@
 
 The program helps to pick up the item at the specified criteria
 
+# How it work?
+
+We used different between [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance)
+for each object
+
+```
+R^2(¡) = ∑(X¡ - Xı)ˆ2; i < length;
+
+value = min(R[]);
+```
+
 # For example
 
 ## Choose the most suitable size
