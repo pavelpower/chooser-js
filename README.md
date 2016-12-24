@@ -7,10 +7,27 @@ The program helps to pick up the item at the specified criteria
 We used different between [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance)
 for each object
 
+![How it work](./img/howItWork_find_closest_value.png)
+
 ```
 R^2(¡) = ∑(X¡ - Xı)ˆ2; i < length;
 
 value = min(R[]);
+```
+
+# Doc
+
+```
+/**
+ * Choose the closest value or the most distant
+ * @param criterionObject {Object} - criterion plain Object
+ * @param ArrayOfValues {Array<Object>} - array of objects similar of "criterionObject"
+ * @returns {{value: {Object}, oppositeValue: {Object}}}
+ */
+var result = getClosestValue (criterionObject, ArrayOfValues);
+
+result.value // the closest value
+result.oppositeValue // the opposite value
 ```
 
 # For example
@@ -42,16 +59,12 @@ When we do next:
 ```
 const getClosestValue = require('chooser-js').getClosestValue;
  
-const result = MinMaxValue(crtSize, ArrayOfValues);
-
-const MinMaxValue = require('chooser-js').MinMaxValue;
- 
-const result = MinMaxValue(crtSize, ArrayOfValues);
+const result = getClosestValue(crtSize, ArrayOfValues).value;
 
 const img = '<img ' +
   'width="' + crtSize.w + '" ' +
   'height="' + crtSize.h + '"' +
-  'src="cdn.server.com/upload/avatar/' + result.min.w + 'x' + result.min.h + '" alt="good image"/>'; 
+  'src="cdn.server.com/upload/avatar/' + result.w + 'x' + result.h + '" alt="good image"/>';
 ```
 
 ## Choose the most suitable image by size and color
@@ -91,13 +104,13 @@ var ArrayOfValuesColors = [
   {w: 560, h: 2,   r: 56,  g: 234, b: 10 }
 ];
 
-const MinMaxValue = require('chooser-js').MinMaxValue;
+const getClosestValue = require('chooser-js').getClosestValue;
  
-const result = MinMaxValue(crtSize, ArrayOfValuesColors);
+const result = getClosestValue(crtSize, ArrayOfValuesColors).value;
 
 const img = '<img ' +
   'width="' + crtSize.w + '" ' +
   'height="' + crtSize.h + '"' +
-  'src="cdn.server.com/upload/avatar/' + result.min.w + 'x' + result.min.h + '" alt="magenta Avatar"/>';
+  'src="cdn.server.com/upload/avatar/' + result.w + 'x' + result.h + '" alt="magenta Avatar"/>';
 
 ```
