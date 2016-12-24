@@ -1,6 +1,6 @@
 var vows = require('vows');
 var assert = require('assert');
-var MinMaxValue = require('../index').MinMaxValue;
+var getClosestValue = require('../index').getClosestValue;
 
 var ArrayOfValues = [
   {w: 120, h: 152},
@@ -24,25 +24,25 @@ var criterionObjectForSize = {w: 142, h: 138};
 var criterionObjectForSizeAndColor = {w: 142, h: 138, r: 99,  g: 255, b: 80};
 
 vows.describe('Test of Chooser').addBatch({
-  'function MinMaxValue': {
-    topic: function getFunc() { return MinMaxValue },
+  'function getClosestValue': {
+    topic: function getFunc() { return getClosestValue },
 
     'type should be function': function (MinMaxValue) {
-      assert.isFunction(MinMaxValue, 'MinMaxValue is not a function');
+      assert.isFunction(MinMaxValue, 'getClosestValue is not a function');
     },
 
     'choose the right size for two parameters': function (MinMaxValue) {
       var result = MinMaxValue(criterionObjectForSize, ArrayOfValues);
 
-      assert.deepEqual(result.min, {w: 120, h: 152}, 'non find minimum value');
-      assert.deepEqual(result.max, {w: 560, h: 2}, 'non find maximum value');
+      assert.deepEqual(result.value, {w: 120, h: 152}, 'non find minimum value');
+      assert.deepEqual(result.oppositeValue, {w: 560, h: 2}, 'non find maximum value');
     },
 
     'choose rectangle by size and color': function (MinMaxValue) {
       var result = MinMaxValue(criterionObjectForSizeAndColor, ArrayOfValuesColors);
 
-      assert.deepEqual(result.min, {w: 120, h: 152, r: 20,  g: 230, b: 150}, 'non find minimum value');
-      assert.deepEqual(result.max, {w: 320, h: 520, r: 255, g: 100, b: 255}, 'non find maximum value');
+      assert.deepEqual(result.value, {w: 120, h: 152, r: 20,  g: 230, b: 150}, 'non find minimum value');
+      assert.deepEqual(result.oppositeValue, {w: 320, h: 520, r: 255, g: 100, b: 255}, 'non find maximum value');
     }
   }
 }).export(module);

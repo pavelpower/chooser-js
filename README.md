@@ -40,7 +40,7 @@ const crtSize = {w: 142, h: 138};
 When we do next:
 
 ```
-const MinMaxValue = require('chooser-js').MinMaxValue;
+const getClosestValue = require('chooser-js').getClosestValue;
  
 const result = MinMaxValue(crtSize, ArrayOfValues);
 
